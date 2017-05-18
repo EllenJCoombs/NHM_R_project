@@ -9,11 +9,6 @@ The aim of this project was to collect measurement and ecological data on a samp
 
 The species analysed were: 
 
-![Species](https://github.com/EllenJCoombs/NHM_R_project/blob/master/Marsupial%20pic.jpg?raw=true)
-
-Photo credit: *Chris Momberg* 
-
-
 * Buff-bellied Fat-tailed Mouse opossum (*Thylamys venustus*)
 * Elegant fat-tailed mouse opossum (*Thylamys elegans*) 
 * White-bellied fat-tailed mouse opossum (*Thylamys pallidior*) 
