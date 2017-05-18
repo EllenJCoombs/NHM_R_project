@@ -5,11 +5,24 @@
 
 ## South America Marsupial Collection
 
-The aim of this project was to collect measurement and ecological data on a sample of South American marsupial speciemens
+The aim of this project was to collect measurement and ecological data on a sample of South American marsupial speciemens: 
 
-Prerequisites 
+The species analysed were: 
 
-What things you need to install the software and how to install them
+![Species](https://www.flickr.com/photos/chrismomberg/11226459565/)
+
+Photo credit: *Chris Momberg* 
+
+
+Buff-bellied Fat-tailed Mouse opossum (*Thylamys venustus*)
+Elegant fat-tailed mouse opossum (*Thylamys elegans*) 
+White-bellied fat-tailed mouse opossum (*Thylamys pallidior*) 
+Karimi's fat-tailed mouse opossum (*Thylamys karimii*) 
+
+
+## Prerequisites for running our analysis 
+
+Some package you will need to install: 
 
 ````
 if (!require("pacman")) install.packages("pacman")
@@ -22,9 +35,9 @@ pacman::p_load(c("dplyr", "tidyverse", "ggplot2), character.only = T)
 To run the analysis of our project go to the [NAMEOFOURMD.md](link)
 
 
-#The Project 
+# Our project 
 
-##Variables key 
+## Variables key 
 
 * Registration ID = NHM unique specimen number
 * Genus
@@ -47,7 +60,17 @@ To run the analysis of our project go to the [NAMEOFOURMD.md](link)
 * Age = juvenile or NA
 
 
-#Contributors: 
+# Contributors: 
+
+* [Jen Ball](https://github.com/JenBall)
+* [Bruno Casanova](https://github.com/BrunoCasa)
+* [Ellen Coombs](https://github.com/EllenJCoombs)
+* [Emma Dunne](https://github.com/emmadunne)
+* [Aislinn Pearson](https://github.com/aislinnpearson)
+
+
+
+
 
 
 
