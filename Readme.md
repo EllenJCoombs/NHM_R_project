@@ -9,7 +9,7 @@ The aim of this project was to collect measurement and ecological data on a samp
 
 The species analysed were: 
 
-![Species](https://github.com/EllenJCoombs/NHM_R_project/blob/master/Marsupial%20pic.jpg)
+![Species](https://github.com/EllenJCoombs/NHM_R_project/blob/master/Marsupial%20pic.jpg?raw=true)
 
 Photo credit: *Chris Momberg* 
 
