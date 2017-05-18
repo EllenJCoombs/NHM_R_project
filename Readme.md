@@ -9,15 +9,15 @@ The aim of this project was to collect measurement and ecological data on a samp
 
 The species analysed were: 
 
-![Species](https://www.flickr.com/photos/chrismomberg/11226459565/)
+![Species](https://github.com/EllenJCoombs/NHM_R_project/blob/master/Marsupial%20pic.jpg)
 
 Photo credit: *Chris Momberg* 
 
 
-Buff-bellied Fat-tailed Mouse opossum (*Thylamys venustus*)
-Elegant fat-tailed mouse opossum (*Thylamys elegans*) 
-White-bellied fat-tailed mouse opossum (*Thylamys pallidior*) 
-Karimi's fat-tailed mouse opossum (*Thylamys karimii*) 
+* Buff-bellied Fat-tailed Mouse opossum (*Thylamys venustus*)
+* Elegant fat-tailed mouse opossum (*Thylamys elegans*) 
+* White-bellied fat-tailed mouse opossum (*Thylamys pallidior*) 
+* Karimi's fat-tailed mouse opossum (*Thylamys karimii*) 
 
 
 ## Prerequisites for running our analysis 
@@ -30,12 +30,14 @@ pacman::p_load(c("dplyr", "tidyverse", "ggplot2), character.only = T)
 
 ````
 
-## Running the tests 
+## Running the analysis 
 
-To run the analysis of our project go to the [NAMEOFOURMD.md](link)
+To run our code, go to [NAMEOFOURMD.md](link)
 
 
-# Our project 
+
+
+# Some things to note 
 
 ## Variables key 
 
@@ -60,7 +62,7 @@ To run the analysis of our project go to the [NAMEOFOURMD.md](link)
 * Age = juvenile or NA
 
 
-# Contributors: 
+## Contributors: 
 
 * [Jen Ball](https://github.com/JenBall)
 * [Bruno Casanova](https://github.com/BrunoCasa)
