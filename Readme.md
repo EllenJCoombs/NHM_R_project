@@ -1,7 +1,7 @@
 
 
 
-# NHM Data Collection project - May 2017 
+# NHM Marsupial skin data analysis - May 2017 
 
 ## South American Marsupial Collection
 
