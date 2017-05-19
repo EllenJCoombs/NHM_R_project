@@ -38,7 +38,7 @@ To run our code, go to [Marsupial_groupproject.Rmd](https://github.com/EllenJCoo
 Where avaiable, information was taken from specimen labels. When measurement data wasn't available, we took our own using a caliper. 
 
 
-* Registration ID = NHM unique specimen number
+* Registration ID = NHM unique specimen number 
 * Genus
 * Species
 * Subspecies
