@@ -3,7 +3,7 @@
 
 # NHM Data Collection project - May 2017 
 
-## South America Marsupial Collection
+## South American Marsupial Collection
 
 The aim of this project was to collect measurement and ecological data on a sample of South American marsupial specimens from the Natural History Museum (London): 
 
