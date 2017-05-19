@@ -5,7 +5,7 @@
 
 ## South America Marsupial Collection
 
-The aim of this project was to collect measurement and ecological data on a sample of South American marsupial speciemens: 
+The aim of this project was to collect measurement and ecological data on a sample of South American marsupial specimens from the Natural History Museum (London): 
 
 The species analysed were: 
 
@@ -17,7 +17,7 @@ The species analysed were:
 
 ## Prerequisites for running our analysis 
 
-Some package you will need to install: 
+Some packages you will need to install: 
 
 ````
 if (!require("pacman")) install.packages("pacman")
@@ -31,10 +31,12 @@ To run our code, go to [NAMEOFOURMD.md](link)
 
 
 
-
 # Some things to note 
 
 ## Variables key 
+
+Where avaiable, information was taken from specimen labels. When measurement data wasn't available, we took our own using a caliper. 
+
 
 * Registration ID = NHM unique specimen number
 * Genus
@@ -57,6 +59,12 @@ To run our code, go to [NAMEOFOURMD.md](link)
 * Age = juvenile or NA
 
 
+## Built With
+
+* [R](https://cran.r-project.org/) - The comprehensive R Archive Network 
+
+
+
 ## Contributors: 
 
 * [Jen Ball](https://github.com/JenBall)
@@ -66,7 +74,14 @@ To run our code, go to [NAMEOFOURMD.md](link)
 * [Aislinn Pearson](https://github.com/aislinnpearson)
 
 
+## Contributing
 
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+
+## License
+
+This project is licensed under the Marsupial License - see the [LICENSE.md](LICENSE.md) file for details
 
 
 
