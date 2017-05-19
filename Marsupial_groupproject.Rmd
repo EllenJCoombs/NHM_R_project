@@ -28,7 +28,7 @@ library(tidyverse)
 library(ggfortify)
 library(gridExtra)
 
-marsupial<-read.csv("Marsupial_skins.csv")
+marsupial<-read_csv("Marsupial_skins_RawData.csv")
 
 str(marsupial)
 
@@ -45,6 +45,24 @@ marsupial <- marsupial[!is.na(marsupial$Sex), ]
 cbPalette <- c("firebrick1", "cornflowerblue", "chartreuse3", "orchid")
 
 ```
+
+Thylamys is a genus of marsupial from South America:
+
+```{r, echo=FALSE, warning=FALSE}
+
+library(ggmap)
+library(spocc)
+library(mapr)
+
+spp <- c('Thylamys elegans','Thylamys karimii','Thylamys pallidior', 'Thylamys venustus')
+dat <- occ(query = spp, from = 'gbif', has_coords = TRUE, limit = 100)
+
+map_ggmap(dat) + scale_color_manual(values=cbPalette)
+
+
+```
+
+
 
 
 ##1. Which species is the ~~cutest~~ longest?
@@ -75,7 +93,7 @@ ggplot(data=marsupial, aes(x = Altitude, y = Total_length, colour= Species))+
   geom_point() +
   scale_color_manual(values=cbPalette)
 
-model1 <- lm(Altitude ~ Total_length, data = marsupial)
+model1 <- lm(Total_length ~ Altitude, data = marsupial)
 #autoplot(model1, smooth.colour = NA)
 anova(model1)
 summary(model1)
