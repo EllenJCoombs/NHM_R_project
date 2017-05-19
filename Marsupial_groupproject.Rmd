@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ##Introduction
 
-Meet Thylamys, the fat-tailed mouse opossum from South America!
+Meet _Thylamys_, the fat-tailed mouse opossum from South America!
 
 ![_Thylamys pallidor_](https://www.researchgate.net/profile/Thomas_Giarla/publication/232678215/figure/fig17/AS:268009122037799@1440909762466/Figure-1-Thylamys-pallidior-from-Bahia-Cracker-4256%27S-6420%27W-Chubut-Argentina.png)
 
@@ -28,7 +28,7 @@ library(tidyverse)
 library(ggfortify)
 library(gridExtra)
 
-marsupial<-read.csv("Marsupial_skins.csv")
+marsupial<-read_csv("Marsupial_skins_RawData.csv")
 
 str(marsupial)
 
