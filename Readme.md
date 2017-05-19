@@ -21,7 +21,7 @@ Some packages you will need to install:
 
 ````
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(c("tidyverse", "ggfortify"), character.only = T)
+pacman::p_load(c("tidyverse", "ggfortify", "gridExtra"), character.only = T)
 
 ````
 
