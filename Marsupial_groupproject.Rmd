@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ##Introduction
 
-Meet _Thylamys_, the fat-tailed mouse opossum from South America!
+Meet Thylamys, the fat-tailed mouse opossum from South America!
 
 ![_Thylamys pallidor_](https://www.researchgate.net/profile/Thomas_Giarla/publication/232678215/figure/fig17/AS:268009122037799@1440909762466/Figure-1-Thylamys-pallidior-from-Bahia-Cracker-4256%27S-6420%27W-Chubut-Argentina.png)
 
@@ -36,15 +36,30 @@ str(marsupial)
 
 marsupial <- marsupial[!is.na(marsupial$Sex), ]
 
-
-#theme_set(theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)))
-
-
 #Colours
 
 cbPalette <- c("firebrick1", "cornflowerblue", "chartreuse3", "orchid")
 
 ```
+
+Thylamys is a genus of marsupial from South America:
+
+```{r, echo=FALSE, warning=FALSE}
+
+library(ggmap)
+library(spocc)
+library(mapr)
+
+spp <- c('Thylamys elegans','Thylamys karimii','Thylamys pallidior', 'Thylamys venustus')
+dat <- occ(query = spp, from = 'gbif', has_coords = TRUE, limit = 100)
+
+
+map_ggmap(dat) + scale_color_manual(values=cbPalette)
+
+
+```
+
+
 
 
 ##1. Which species is the ~~cutest~~ longest?
@@ -75,7 +90,7 @@ ggplot(data=marsupial, aes(x = Altitude, y = Total_length, colour= Species))+
   geom_point() +
   scale_color_manual(values=cbPalette)
 
-model1 <- lm(Altitude ~ Total_length, data = marsupial)
+model1 <- lm(Total_length ~ Altitude, data = marsupial)
 #autoplot(model1, smooth.colour = NA)
 anova(model1)
 summary(model1)
