@@ -9,7 +9,7 @@ The aim of this project was to collect measurement and ecological data on a samp
 
 The species analysed were: 
 
-* Buff-bellied Fat-tailed Mouse opossum (*Thylamys venustus*)
+* Buff-bellied Fat-tailed mouse opossum (*Thylamys venustus*)
 * Elegant fat-tailed mouse opossum (*Thylamys elegans*) 
 * White-bellied fat-tailed mouse opossum (*Thylamys pallidior*) 
 * Karimi's fat-tailed mouse opossum (*Thylamys karimii*) 
@@ -21,7 +21,7 @@ Some packages you will need to install:
 
 ````
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(c("dplyr", "tidyverse", "ggplot2), character.only = T)
+pacman::p_load(c("tidyverse", "ggfortify"), character.only = T)
 
 ````
 
