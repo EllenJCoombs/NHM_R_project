@@ -27,7 +27,7 @@ pacman::p_load(c("tidyverse", "ggfortify", "gridExtra"), character.only = T)
 
 ## Running the analysis 
 
-To run our code, go to [NAMEOFOURMD.md](link)
+To run our code, go to [Marsupial_groupproject.Rmd](https://github.com/EllenJCoombs/NHM_R_project/blob/master/Marsupial_groupproject.Rmd)
 
 
 
