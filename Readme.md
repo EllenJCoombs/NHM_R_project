@@ -65,7 +65,7 @@ Where avaiable, information was taken from specimen labels. When measurement dat
 
 
 
-## Contributors: 
+## Contributors
 
 * [Jen Ball](https://github.com/JenBall)
 * [Bruno Casanova](https://github.com/BrunoCasa)
