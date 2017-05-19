@@ -36,10 +36,6 @@ str(marsupial)
 
 marsupial <- marsupial[!is.na(marsupial$Sex), ]
 
-
-#theme_set(theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)))
-
-
 #Colours
 
 cbPalette <- c("firebrick1", "cornflowerblue", "chartreuse3", "orchid")
