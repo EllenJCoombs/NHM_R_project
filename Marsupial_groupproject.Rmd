@@ -1,0 +1,186 @@
+---
+title: "NHM Marsupial Skin Data Analysis"
+
+author: "Jen Ball, Bruno Cassanova, Ellen Coombs, Emma Dunne, & Aislinn Pearson"
+
+date: "19th May 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Fat-tailed Mouse Opossum _Thylamys_
+
+##Introduction
+
+Meet Thylamys, the fat-tailed mouse opossum from South America!
+
+![_Thylamys pallidor_](https://www.researchgate.net/profile/Thomas_Giarla/publication/232678215/figure/fig17/AS:268009122037799@1440909762466/Figure-1-Thylamys-pallidior-from-Bahia-Cracker-4256%27S-6420%27W-Chubut-Argentina.png)
+
+We collected body measurements of 73 individuals from four species of Thylamys in NHM Mammal collection and analysed the results...
+
+
+
+```{r, include=FALSE}
+library(tidyverse)
+library(ggfortify)
+library(gridExtra)
+
+marsupial<-read.csv("Marsupial_skins.csv")
+
+str(marsupial)
+
+#marsupial$Tail_length<- as.numeric(marsupial$Tail_length)
+
+marsupial <- marsupial[!is.na(marsupial$Sex), ]
+
+
+#theme_set(theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)))
+
+
+#Colours
+
+cbPalette <- c("firebrick1", "cornflowerblue", "chartreuse3", "orchid")
+
+```
+
+
+##1. Which species is the ~~cutest~~ longest?
+
+```{r, echo=FALSE, warning=FALSE}
+ggplot(data=marsupial, aes(x = Species, y = Total_length))+
+  geom_boxplot(aes(fill=Species)) +
+  theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)) +
+  scale_fill_manual(values=cbPalette)
+ 
+```
+
+```{r, echo=FALSE}
+model2 <- lm(Total_length ~ Species, data = marsupial)
+#autoplot(model2, smooth.colour = NA)
+anova(model2)
+summary(model2)
+```
+
+
+
+##2. Does altitude affect size?
+
+```{r, echo=FALSE, warning=FALSE}
+ggplot(data=marsupial, aes(x = Altitude, y = Total_length, colour= Species))+
+  theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)) +
+  labs(x = "Altitude (m)", y = "Total length (mm)") +
+  geom_point() +
+  scale_color_manual(values=cbPalette)
+
+model1 <- lm(Altitude ~ Total_length, data = marsupial)
+#autoplot(model1, smooth.colour = NA)
+anova(model1)
+summary(model1)
+
+```
+
+
+
+
+##3. Is there a relationship between the length of hind foot and body?
+
+```{r, echo=FALSE,  warning=FALSE}
+ggplot(data=marsupial, aes(x = Head_body, y = Hind_foot, colour= Species))+
+  geom_point() +
+  theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)) +
+  labs(x = "Head & body length (mm)", y = "Hind foot length (mm)") +
+  geom_smooth(method=lm, se=FALSE, colour = "grey70", size =0.7) +
+  scale_color_manual(values=cbPalette)
+```
+
+```{r, include = FALSE, echo=FALSE,  warning=FALSE}
+model2 <- lm(Hind_foot ~ Head_body * Species, data = marsupial)
+#autoplot(model2, smooth.colour = NA)
+anova(model2)
+summary(model2)
+```
+
+```{r, echo=FALSE,  warning=FALSE}
+#Adding regression lines to the plot
+
+# min(marsupial$Head_body,na.rm=T)
+# max(marsupial$Head_body,na.rm=T)
+
+newX <- expand.grid(Head_body = seq(from = 58, to = 163, length = 100), Species = c("elegans","karimii","pallidior","venustus"))
+newY <- predict(model2, newdata = newX, interval = "confidence")
+addThese <- data.frame(newX, newY)
+addThese <- rename(addThese, Hind_foot = fit)
+
+#Plot with regression lines
+ggplot(marsupial, aes(x = Head_body, y = Hind_foot, colour=Species, fill=Species)) + 
+  geom_point() +
+  facet_wrap(~Species)+ #splitting graphs out by species
+  labs(x = "Head & body length (mm)", y = "Hind foot length (mm)") +
+  theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)) +
+  geom_smooth(data = addThese, aes(ymin = lwr, ymax = upr), stat = "identity") +
+  scale_fill_manual(values=cbPalette) +
+  scale_color_manual(values=cbPalette)
+
+model2 <- lm(Hind_foot ~ Head_body * Species, data = marsupial)
+#autoplot(model2, smooth.colour = NA)
+anova(model2)
+summary(model2)
+
+  
+```
+
+
+
+##4. Do males and females differ in size?
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE}
+#no significant difference between M and F in total length
+p1 <- ggplot(data=marsupial, aes(Sex, Total_length)) + 
+  geom_boxplot(aes(fill = Sex)) +
+  scale_fill_manual(values=c("deeppink", "steelblue"), guide=FALSE) +
+  theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)) +
+  labs(x = "", y = "Total Length (mm)")
+
+
+p2 <- ggplot(data=marsupial, aes(Sex, Head_body)) + 
+  geom_boxplot(aes(fill = Sex)) +
+  scale_fill_manual(values=c("deeppink", "steelblue"), guide=FALSE) +
+  theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)) +
+  labs(x = "", y = "Head & Body Length (mm)")
+
+
+p3 <- ggplot(data=marsupial, aes(Sex, Hind_foot)) + 
+  geom_boxplot(aes(fill = Sex)) +
+  scale_fill_manual(values=c("deeppink", "steelblue"), guide=FALSE) +
+  theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)) +
+  labs(x = "", y = "Hind foot Length (mm)")
+
+
+p4 <- ggplot(data=marsupial, aes(Sex, Ear_length)) + 
+  geom_boxplot(aes(fill = Sex)) +
+  scale_fill_manual(values=c("deeppink", "steelblue"), guide=FALSE) +
+  theme(panel.background = element_blank(), panel.border = element_rect(colour = "grey40", fill = NA)) +
+  labs(x = "", y = "Ear Length (mm)")
+
+
+grid.arrange(p1, p2, p3, p4, ncol=2)
+  
+```
+
+Sample size = 37 males, 36 females.
+
+
+#Conclusions
+
+We acknowlegde the significiant limiations of our research, but onwards and upwards to greater data sampling!
+ 
+
+
+
+![(Not a mouse opossum, but equally cute)](http://imgur.com/8hWEedG.gif)
+
+
+
